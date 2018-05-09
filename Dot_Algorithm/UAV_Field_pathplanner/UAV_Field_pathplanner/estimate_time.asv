@@ -1,0 +1,8 @@
+function [time] = estimate_time(test,v_t,acc)
+
+time = 0;
+
+for i = 1 : length(test)-1
+ distance = sqrt((test(i+1,1)-test(i,1))^2+(test(i+1,2)-test(i,2))^2);
+ if (distance >= 16)
+     time = time + (distance - 16)/4;
